@@ -440,7 +440,7 @@ export class NVENCConfig extends BaseHWConfig {
   }
 
   getBaseInputOptions() {
-    return ['-hwaccel cuda', '-hwaccel_output_format cuda', ...this.getThreadOptions()];
+    return ['-hwaccel cuda', '-hwaccel_output_format cuda', ...this.getInputThreadOptions()];
   }
 
   getBaseOutputOptions(target: TranscodeTarget, videoStream: VideoStreamInfo, audioStream?: AudioStreamInfo) {
@@ -517,8 +517,12 @@ export class NVENCConfig extends BaseHWConfig {
     }
   }
 
-  getThreadOptions() {
+  getInputThreadOptions() {
     return [`-threads ${this.config.threads <= 0 ? 1 : this.config.threads}`];
+  }
+
+  getThreadOptions() {
+    return [];
   }
 
   getRefs() {
