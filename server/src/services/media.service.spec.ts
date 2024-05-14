@@ -1279,7 +1279,7 @@ describe(MediaService.name, () => {
             '-map 0:1',
             '-g 256',
             '-v verbose',
-            '-vf hwupload=derive_device=vulkan,scale_vulkan=w=1280:h=720,libplacebo=color_primaries=bt709:color_trc=bt709:colorspace=bt709:deband=true:deband_iterations=3:deband_radius=8:deband_threshold=6:downscaler=none:format=yuv420p:tonemapping=clip:upscaler=none,hwupload=derive_device=cuda',
+            '-vf scale_cuda=-2:720,hwupload=derive_device=vulkan,libplacebo=color_primaries=bt709:color_trc=bt709:colorspace=bt709:deband=true:deband_iterations=3:deband_radius=8:deband_threshold=6:downscaler=none:format=yuv420p:tonemapping=clip:upscaler=none,hwupload=derive_device=cuda',
             '-preset p1',
             '-cq:v 23',
           ]),

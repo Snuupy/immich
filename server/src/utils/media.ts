@@ -462,11 +462,11 @@ export class NVENCConfig extends BaseHWConfig {
   }
 
   getFilterOptions(videoStream: VideoStreamInfo) {
-    const options = ['hwupload=derive_device=vulkan'];
+    const options = [];
     if (this.shouldScale(videoStream)) {
-      const { width, height } = this.getSize(videoStream);
-      options.push(`scale_vulkan=w=${width}:h=${height}`);
+      options.push(`scale_cuda=${this.getScaling(videoStream)}`);
     }
+    options.push('hwupload=derive_device=vulkan');
 
     const colors = this.getColors();
     const libplaceboOptions = [
